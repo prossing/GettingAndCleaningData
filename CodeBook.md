@@ -14,9 +14,9 @@
 
 ## Variables
 
-* "Subject"
-* "Activity"
-* "tBodyAcc-mean()-X"
+* "Subject" - identification number
+* "Activity" - descriptive name of activity
+* "tBodyAcc-mean()-X" - m / s**2
 * "tBodyAcc-mean()-Y"
 * "tBodyAcc-mean()-Z"
 * "tBodyAcc-std()-X"
