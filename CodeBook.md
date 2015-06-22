@@ -14,8 +14,8 @@
 
 ## Variables
 
-"Subject"
-"Activity"
+"Subject"\
+"Activity"/
 "tBodyAcc-mean()-X"
 "tBodyAcc-mean()-Y"
 "tBodyAcc-mean()-Z"
