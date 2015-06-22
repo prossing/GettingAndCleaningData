@@ -1,10 +1,10 @@
 ## Human Activity Recognition Using Smartphones Data Set
-### From the course "Getting and Cleaning Data" offered by JohnsHopkins University through Coursera.
+#### From the course "Getting and Cleaning Data" offered by JohnsHopkins University through Coursera.
 
-### This document describes the processing steps applied to the UCI HAR data and its variables.
+#### This document describes the processing steps applied to the UCI HAR data and its variables.
 
-### About the data
-#### from http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+#### About the data
+##### from http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
 > Human Activity Recognition database built from the recordings of 30 subjects performing activities of daily living (ADL) while carrying a waist-mounted smartphone with embedded inertial sensors.
 
