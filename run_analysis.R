@@ -3,18 +3,6 @@
 library(data.table)
 library(reshape2)
 
-## Asking the user if data download is required.
-
-userInput <- tolower(readline("Do you want to download and unzip the UCI HAR Dataset to your current working directory? Y/N: "))
-
-if(userInput == 'y') {
-    getData()
-} else if(file.exists("./UCI HAR Dataset")) {
-    print('Data is in working directory')
-} else {
-    print("Data not found in working directory") 
-}
-
 ## Function that downloads and unzips the data in the wd.
 
 getData <- function() {
@@ -23,6 +11,9 @@ getData <- function() {
     unzip(zipfile = './HARUSDS.zip', exdir = './')
     if (file.exists("./UCI HAR Dataset")) file.remove('./HARUSDS.zip')
 }
+
+getData()
+
 
 ## Reading data into R as data.table than merge test and train
 
@@ -62,21 +53,16 @@ names(train_Y) = c("ActivityID", "Activity")
 setnames(train_subject, "V1", "Subject")
 
 ## Merging train files
-train_compl = cbind(train_subject, train_Y, train_X)
+train_compl <- cbind(train_subject, train_Y, train_X)
 
-feautures <- read.table("./UCI HAR Dataset/features.txt") ##REDUNDANT
-    
 ## Merging test and train
-test_train = rbind(test_compl, train_compl)
+test_train <- rbind(test_compl, train_compl)
 
-## Extracting the mean and standard deviation for each measurement
-
-#test_train_mean_stdev = test_train[, grep("mean|std", names(test_train))]
-
+## Creating file with means
 id_var <- c("Subject", "ActivityID", "Activity")
-meas_var <- setdiff(colnames(test_train_mean_stdev), id_var)
+meas_var <- setdiff(colnames(test_train), id_var)
 
-melt_data = melt(test_train, id = id_var, measure.vars = meas_var)
+melt_data <- melt(test_train, id = id_var, measure.vars = meas_var)
 final_data <- dcast(melt_data, Subject + Activity ~ variable, mean)
 write.table(final_data, file = "./UCI_HAR_tidy.txt", row.name = FALSE)
 
