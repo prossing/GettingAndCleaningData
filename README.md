@@ -1,6 +1,6 @@
 # Getting and Cleaning Data
 
-#### From the course "Getting and Cleaning Data" offered by Johns Hopkins University through Coursera.
+#### From the course "Getting and Cleaning Data" offered by Johns Hopkins University through Coursera
 
 This repo contains two files that are part of a course project on processing of smartphone accelerometer data.
 
