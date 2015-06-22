@@ -123,5 +123,9 @@ Data is merged, first train data files are merged with eachother, then test data
 
 #### Creates independent data set with average data
 
+A data set with the averages of each variale is created using melt and dcast.
+
 #### Writes the average data to a text file
+
+The above data set is written to "UCI_HAR_tidy.txt".
  
