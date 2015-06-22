@@ -104,17 +104,22 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 
 The file can be downloaded and unzipped through the R-script.
 
-### run_analysis.R does the following
+### The script run_analysis.R does the following:
 
-#### Downloads and unzipping
+#### Downloads and unzipps
+This step is enclosed in the function getData so it could easily be skipped if data is already in wd. The function downloads the zip-file in the link above, unzipps it in wd and deletes the zip. 
 
 #### Reading data into R
-
-#### Extracts relevant data
+The data is split into several files in a file structure. In this step the files with relevant data are loaded into R.
 
 #### Adds descriptive names
+The original data set contains a text file called features.txt with names, they are appended.   
+
+#### Extracts relevant data
+Since only data about mean and standard deviation is needed, relevant columns are extraced at this point to avoid unessassary processing. Sorting is done by creating an index of columns with names matching "mean" and "std", grep is used.
 
 #### Merges test and train data
+Data is merged, first train data files are merged with eachother, then test data files with eachother, lastly the train and test data is merged.
 
 #### Creates independent data set with average data
 
