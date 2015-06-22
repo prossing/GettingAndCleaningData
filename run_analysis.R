@@ -26,7 +26,6 @@ getData <- function() {
 
 ## Reading data into R as data.table than merge test and train
 
-
 activity_labels <- read.table("./UCI HAR Dataset/activity_labels.txt")[, 2]
 
 ## Gathering test files
@@ -72,12 +71,12 @@ test_train = rbind(test_compl, train_compl)
 
 ## Extracting the mean and standard deviation for each measurement
 
-test_train_mean_stdev = test_train[, grep("mean|std", names(test_train))]
+#test_train_mean_stdev = test_train[, grep("mean|std", names(test_train))]
 
 id_var <- c("Subject", "ActivityID", "Activity")
 meas_var <- setdiff(colnames(test_train_mean_stdev), id_var)
 
-melt_data = melt(test_train_mean_stdev, id = id_var, measure.vars = meas_var)
+melt_data = melt(test_train, id = id_var, measure.vars = meas_var)
 final_data <- dcast(melt_data, Subject + Activity ~ variable, mean)
 write.table(final_data, file = "./UCI_HAR_tidy.txt", row.name = FALSE)
 
